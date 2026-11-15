@@ -2,278 +2,398 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slug (slang) — The Slug Encyclopedia</title>
 
-    <title>The Commonplace</title>
+<style>
+* {
+    box-sizing: border-box;
+}
 
-    <style>
-        :root {
-            --paper: #F3EFE6;
-            --navy: #172D40;
-            --brown: #79583F;
-            --green: #45594A;
-            --ink: #292927;
-            --muted: #777267;
-            --line: #D5CCBD;
-        }
+body {
+    margin: 0;
+    background: #f8f9fa;
+    color: #202122;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+header {
+    height: 65px;
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+    border-bottom: 1px solid #a7d7f9;
+    background: white;
+}
 
-        body {
-            background: var(--paper);
-            color: var(--ink);
-            font-family: Georgia, "Times New Roman", serif;
-            line-height: 1.7;
-        }
+.logo {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    margin-right: 35px;
+}
 
-        header {
-            max-width: 1100px;
-            margin: auto;
-            padding: 30px 35px 20px;
-        }
+.logo small {
+    display: block;
+    font-size: 10px;
+    margin-top: -7px;
+    letter-spacing: 2px;
+}
 
-        .site-title {
-            color: var(--navy);
-            font-size: 25px;
-            font-weight: normal;
-            letter-spacing: 1px;
-        }
+.search {
+    margin-left: auto;
+}
 
-        nav {
-            display: flex;
-            gap: 30px;
-            margin-top: 20px;
-            border-bottom: 1px solid var(--line);
-            padding-bottom: 15px;
-        }
+.search input {
+    padding: 8px;
+    border: 1px solid #a2a9b1;
+    width: 210px;
+}
 
-        nav a {
-            color: var(--green);
-            text-decoration: none;
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+.container {
+    display: flex;
+    max-width: 1250px;
+    margin: auto;
+    background: white;
+    min-height: 100vh;
+}
 
-        nav a:hover {
-            color: var(--brown);
-        }
+.sidebar {
+    width: 190px;
+    padding: 25px 18px;
+    border-right: 1px solid #eaecf0;
+    flex-shrink: 0;
+}
 
-        main {
-            max-width: 1100px;
-            margin: auto;
-            padding: 60px 35px;
-        }
+.sidebar a {
+    display: block;
+    color: #0645ad;
+    text-decoration: none;
+    padding: 3px 0;
+}
 
-        .intro {
-            max-width: 650px;
-            margin-bottom: 75px;
-        }
+.sidebar h4 {
+    border-bottom: 1px solid #c8ccd1;
+    font-weight: normal;
+    margin-bottom: 8px;
+}
 
-        .eyebrow {
-            color: var(--brown);
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+main {
+    flex: 1;
+    padding: 25px 35px;
+    min-width: 0;
+}
 
-        h1 {
-            color: var(--navy);
-            font-size: clamp(36px, 6vw, 58px);
-            font-weight: normal;
-            line-height: 1.15;
-            margin: 20px 0;
-        }
+h1 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 30px;
+    border-bottom: 1px solid #a2a9b1;
+    padding-bottom: 8px;
+    margin-top: 0;
+}
 
-        .intro p {
-            color: var(--muted);
-            font-size: 17px;
-        }
+h2 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 22px;
+    border-bottom: 1px solid #a2a9b1;
+    margin-top: 30px;
+}
 
-        h2 {
-            color: var(--navy);
-            font-size: 28px;
-            font-weight: normal;
-            margin-bottom: 25px;
-        }
+a {
+    color: #0645ad;
+}
 
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0 50px;
-        }
+.notice {
+    background: #f8f9fa;
+    border: 1px solid #a2a9b1;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 12px;
+}
 
-        .category {
-            border-top: 1px solid var(--line);
-            padding: 22px 0;
-        }
+.infobox {
+    float: right;
+    width: 280px;
+    margin: 0 0 20px 25px;
+    border: 1px solid #a2a9b1;
+    background: #f8f9fa;
+    padding: 8px;
+    font-size: 13px;
+}
 
-        .category a {
-            color: var(--navy);
-            font-size: 21px;
-            text-decoration: none;
-        }
+.infobox h3 {
+    text-align: center;
+    margin: 5px 0 10px;
+    font-size: 18px;
+}
 
-        .category a:hover {
-            color: var(--brown);
-        }
+.infobox table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-        .category p {
-            color: var(--muted);
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            margin-top: 5px;
-        }
+.infobox td {
+    padding: 6px;
+    border-top: 1px solid #eaecf0;
+    vertical-align: top;
+}
 
-        .recent {
-            margin-top: 85px;
-        }
+.infobox td:first-child {
+    font-weight: bold;
+    width: 40%;
+}
 
-        .work {
-            border-top: 1px solid var(--line);
-            padding: 20px 0;
-        }
+.toc {
+    display: table;
+    border: 1px solid #a2a9b1;
+    background: #f8f9fa;
+    padding: 12px 25px;
+    margin: 20px 0;
+}
 
-        .work a {
-            color: var(--navy);
-            font-size: 20px;
-            text-decoration: none;
-        }
+.toc h3 {
+    margin: 0;
+    text-align: center;
+}
 
-        .work p {
-            color: var(--muted);
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-        }
+.toc ol {
+    margin-bottom: 0;
+    padding-left: 25px;
+}
 
-        footer {
-            border-top: 1px solid var(--line);
-            color: var(--muted);
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            margin-top: 80px;
-            padding: 25px 35px;
-            text-align: center;
-        }
+.definition {
+    font-size: 15px;
+}
 
-        @media (max-width: 600px) {
-            header, main {
-                padding-left: 22px;
-                padding-right: 22px;
-            }
+footer {
+    border-top: 1px solid #a2a9b1;
+    padding: 20px;
+    margin-top: 45px;
+    font-size: 12px;
+    color: #54595d;
+}
 
-            .categories {
-                grid-template-columns: 1fr;
-            }
+@media(max-width: 750px) {
+    .sidebar {
+        display: none;
+    }
 
-            nav {
-                gap: 18px;
-                flex-wrap: wrap;
-            }
-        }
-    </style>
+    main {
+        padding: 20px 15px;
+    }
+
+    .infobox {
+        float: none;
+        width: 100%;
+        margin: 15px 0;
+    }
+
+    .search input {
+        width: 120px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <div class="site-title">The Commonplace</div>
+<header>
+    <div class="logo">
+        The Slug Encyclopedia
+        <small>THE INTERNET'S DEFINITIVE SLUG SOURCE</small>
+    </div>
 
-        <nav>
-            <a href="#collections">The Stuff</a>
-            <a href="#recent">Recent Stuff</a>
-            <a href="#about">About</a>
-        </nav>
-    </header>
+    <div class="search">
+        <input type="text" placeholder="Search the encyclopedia...">
+    </div>
+</header>
 
-    <main>
+<div class="container">
 
-        <section class="intro">
-            <div class="eyebrow">
-                A cool collection of stuff I wrote
-            </div>
+<aside class="sidebar">
+    <h4>Navigation</h4>
+    <a href="#">Main page</a>
+    <a href="#">Recent changes</a>
+    <a href="#">Random article</a>
 
-            <h1>A place for ideas, questions, answers and analysis.</h1>
+    <h4>Related topics</h4>
+    <a href="#meaning">Meaning</a>
+    <a href="#usage">Usage</a>
+    <a href="#examples">Examples</a>
+    <a href="#etymology">Etymology</a>
+</aside>
 
-            <p>
-                A collection of my essays, philosophical blahblah,
-                research, literature, and creative writing.
-            </p>
-        </section>
+<main>
 
-        <section id="collections">
-            <h2>Collections</h2>
+<div class="notice">
+    <strong>PARODY ENCYCLOPEDIA:</strong>
+    This is a fictional entry created for entertainment.
+</div>
 
-            <div class="categories">
+<h1>Slug (slang)</h1>
 
-                <div class="category">
-                    <a href="#">Philosophy</a>
-                    <p>Arguments, questions, and reflections.</p>
-                </div>
+<p>From The Slug Encyclopedia, the fictional slang reference.</p>
 
-                <div class="category">
-                    <a href="#">Psychology</a>
-                    <p>The mind and humans being weird.</p>
-                </div>
+<div class="infobox">
+    <h3>Slug</h3>
+    <div style="text-align:center; font-size:45px;">🐌</div>
+    <table>
+        <tr>
+            <td>Word</td>
+            <td>Slug</td>
+        </tr>
+        <tr>
+            <td>Pronunciation</td>
+            <td>/slʌɡ/</td>
+        </tr>
+        <tr>
+            <td>Part of speech</td>
+            <td>Noun; adjective (fictional usage)</td>
+        </tr>
+        <tr>
+            <td>Language</td>
+            <td>English (invented slang)</td>
+        </tr>
+        <tr>
+            <td>Register</td>
+            <td>Informal</td>
+        </tr>
+        <tr>
+            <td>Origin</td>
+            <td>Fictional</td>
+        </tr>
+    </table>
+</div>
 
-                <div class="category">
-                    <a href="#">Literature</a>
-                    <p>Literary analysis and criticism.</p>
-                </div>
+<p class="definition">
+    <b>Slug</b> is a fictional slang term used in this parody
+    to describe a person, situation, or object exhibiting an
+    unusual combination of awkwardness, confidence, and
+    questionable decision-making.
+</p>
 
-                <div class="category">
-                    <a href="#">Creative Writing</a>
-                    <p>Poetry, prose, and fiction.</p>
-                </div>
+<p>
+    In the fictional vocabulary presented here, the term can
+    function as both a noun and an adjective. Its meaning
+    depends heavily on context, tone, and social circumstances.
+</p>
 
-                <div class="category">
-                    <a href="#">Research</a>
-                    <p>studies and investigations.</p>
-                </div>
+<div class="toc">
+    <h3>Contents</h3>
+    <ol>
+        <li><a href="#meaning">Meaning</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="#etymology">Etymology</a></li>
+        <li><a href="#variations">Variations</a></li>
+        <li><a href="#see-also">See also</a></li>
+    </ol>
+</div>
 
-                <div class="category">
-                    <a href="#">Other Stuff</a>
-                    <p>Everything beyond the categories above.</p>
-                </div>
+<h2 id="meaning">1. Meaning</h2>
 
-            </div>
-        </section>
+<p>
+    Within the fictional slang system, a slug is an individual
+    displaying a distinctive form of social incompetence,
+    particularly when acting with unjustified confidence.
+</p>
 
-        <section class="recent" id="recent">
-            <h2>Recent Works</h2>
+<p>
+    The word may also describe an event that is unexpectedly
+    embarrassing or an action that demonstrates poor judgment.
+</p>
 
-            <div class="work">
-                <a href="#">A First Work</a>
-                <p>Philosophy · November 2026</p>
-            </div>
+<h2 id="usage">2. Usage</h2>
 
-            <div class="work">
-                <a href="#">Another Work</a>
-                <p>Psychology · November 2026</p>
-            </div>
-        </section>
+<p>
+    The term is presented as informal and context-dependent.
+    It is generally used in casual conversation and humorous
+    exchanges.
+</p>
 
-        <section class="recent" id="about">
-            <h2>About the Archive</h2>
+<p>In this fictional vocabulary, common constructions include:</p>
 
-            <p>
-                This archive contains independently written works,
-                research, reflections, and ongoing intellectual projects.
-            </p>
-        </section>
+<ul>
+    <li>"That was incredibly slug."</li>
+    <li>"You're acting like a complete slug."</li>
+    <li>"What a slug moment."</li>
+    <li>"Bro has achieved maximum slug."</li>
+</ul>
 
-    </main>
+<h2 id="examples">3. Examples</h2>
 
-    <footer>
-        An independently maintained archive · 2026
-    </footer>
+<table border="1" cellpadding="9" cellspacing="0"
+style="border-collapse:collapse; width:100%; border-color:#a2a9b1;">
+
+<tr style="background:#eaecf0;">
+    <th>Expression</th>
+    <th>Fictional interpretation</th>
+</tr>
+
+<tr>
+    <td>"He's being a slug."</td>
+    <td>He is behaving in an unusually foolish manner.</td>
+</tr>
+
+<tr>
+    <td>"That's slug."</td>
+    <td>That is an awkward or questionable decision.</td>
+</tr>
+
+<tr>
+    <td>"Absolute slug."</td>
+    <td>A particularly impressive example of poor judgment.</td>
+</tr>
+
+<tr>
+    <td>"Slug behavior."</td>
+    <td>Behavior characterized by questionable decisions.</td>
+</tr>
+
+</table>
+
+<h2 id="etymology">4. Etymology</h2>
+
+<p>
+    The historical origin of this fictional slang usage is
+    intentionally invented. It should not be confused with
+    the established English word "slug", which has several
+    genuine meanings.
+</p>
+
+<h2 id="variations">5. Variations</h2>
+
+<ul>
+    <li><b>Slugging:</b> The fictional act of behaving like a slug.</li>
+    <li><b>Slugged:</b> Having demonstrated slug-like behavior.</li>
+    <li><b>Slugness:</b> The fictional quality of being a slug.</li>
+    <li><b>Maximum slug:</b> An extreme example of the concept.</li>
+</ul>
+
+<h2 id="see-also">6. See also</h2>
+
+<ul>
+    <li><a href="#">Goober</a></li>
+    <li><a href="#">Dingus</a></li>
+    <li><a href="#">Clown behavior</a></li>
+</ul>
+
+<footer>
+    This website is an independent fictional parody project.
+    It is not affiliated with Wikipedia or any academic
+    linguistic institution.
+
+    <br><br>
+    Last edited: 14 November 2026
+</footer>
+
+</main>
+</div>
 
 </body>
 </html>
+
